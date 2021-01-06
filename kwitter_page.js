@@ -39,14 +39,12 @@ function getData() { firebase.database().ref("/"+roomname).on('value', function(
       } });  }); }
 getData();
 
-function update_likes(message_id){
+function updated_likes(message_id){
 console.log(message_id);
 button_id=message_id;
 likes=document.getElementById(button_id).value;
 updated_likes=Number(likes)+1;
-firebase.database().ref(roomname).child(message_id).update({
-      like : update_likes
-});
+updated_likes=Number(likes)+1; firebase.database().ref(roomname).child(message_id).update({ like : update_likes }); 
 }
 
 function logout(){
